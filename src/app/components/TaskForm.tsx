@@ -36,32 +36,36 @@ const TaskForm: React.FC<TaskFormProps> = ({
   return (
     <div className="px-6 py-6 border-b border-gray-100 space-y-4 bg-white">
       <div className="flex items-center space-x-4">
-        <div className="flex-grow relative">
-          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 text-gray-400">
-            <PlusIcon className="w-5 h-5" />
-          </div>
-          <input
-            type="text"
-            placeholder="Add a new task..."
-            value={newTaskName}
-            onChange={(e) => setNewTaskName(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && createTask()}
-            className="w-full pl-7 pr-4 py-2 text-lg bg-transparent text-gray-900 
-              placeholder-gray-400 border-b-2 border-gray-100 focus:border-blue-500 
-              transition-colors duration-200 outline-none"
-          />
-        </div>
-        {newTaskName.trim() && (
-          <button
-            onClick={createTask}
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg
-              transition-colors duration-200 flex items-center space-x-2"
-          >
-            <PlusIcon size={16} />
-            <span>Add Task</span>
-          </button>
-        )}
-      </div>
+  <div className="flex-grow relative">
+    <div
+      className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+      title="Add a task"
+    >
+      <PlusIcon className="w-6 h-6" />
+    </div>
+    <input
+      type="text"
+      placeholder="Add a new task..."
+      value={newTaskName}
+      onChange={(e) => setNewTaskName(e.target.value)}
+      onKeyDown={(e) => e.key === "Enter" && createTask()}
+      className={`w-full pl-10 pr-4 py-3 text-base bg-gray-50 text-gray-900 
+        placeholder-gray-400 border border-gray-200 rounded-lg shadow-sm 
+        focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all duration-200`}
+    />
+  </div>
+  {newTaskName.trim() && (
+    <button
+      onClick={createTask}
+      className="px-4 py-3 bg-blue-500 text-white rounded-lg
+        hover:bg-blue-600 focus:ring-2 focus:ring-blue-300 
+        transition-all duration-200 flex items-center space-x-2"
+    >
+      <PlusIcon size={16} />
+      <span>Add Task</span>
+    </button>
+  )}
+</div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
         <div>
